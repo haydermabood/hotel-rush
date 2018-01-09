@@ -1,0 +1,30 @@
+<p-dataList [value]="hotelOfferList" [paginator]="true" [rows]="4">
+   <p-header>
+      List of Offers
+   </p-header>
+   <ng-template let-hotelOffer pTemplate="item">
+      <div class="ui-g ui-fluid hotel-offer-item">
+         <div class="ui-g-12 ui-md-3" style="text-align:center;">
+            <a target="_blank" (click)="redirectToMoreInfo(hotelOffer)">
+               <img src={{hotelOffer.hotelInfo.hotelImageUrl}} style="cursor: pointer;">
+            </a>
+         </div>
+         <div class="ui-g-12 ui-md-9 hotel-offer-details">
+            <div class="ui-g">
+               <div class="ui-g-2 ui-sm-6">Destination:</div>
+               <div class="ui-g-10 ui-sm-6">{{hotelOffer.destination.longName}}</div>
+
+               <div class="ui-g-2 ui-sm-6">Hotel Name:</div>
+               <div class="ui-g-10 ui-sm-6">{{hotelOffer.hotelInfo.hotelName}}</div>
+
+               <div class="ui-g-2 ui-sm-6">Total Pricing:</div>
+               <div class="ui-g-10 ui-sm-6">{{hotelOffer.hotelPricingInfo.totalPriceValue}}</div>
+
+               <div class="ui-g-2 ui-sm-6">
+                  <button pButton type="button" label="more info" (click)="redirectToMoreInfo(hotelOffer)" style="cursor: pointer;"></button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </ng-template>
+</p-dataList>

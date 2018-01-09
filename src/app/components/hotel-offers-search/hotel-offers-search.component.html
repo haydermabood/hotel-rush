@@ -1,0 +1,97 @@
+<form [formGroup]="hotelOfferForm" (ngSubmit)="onSubmit()" class="ui-g form">
+   <p-panel header="Search for Offers" class="ui-g-12">
+
+      <div class="ui-g">
+         <div class="ui-g-5">
+            <label for="destinationName" class="ui-g-12 ui-md-4">Destination*</label>
+            <input size="30" type="text" pInputText id="destinationName" formControlName="destinationName" class="ui-g-12 ui-md-6"/>
+            <div class="ui-g-12">
+               <at-fielderrors [form]="hotelOfferForm" field="destinationName" nicename="Destination name"></at-fielderrors>
+            </div>
+         </div>
+
+         <div class="ui-g-5">
+            <label for="lengthOfStay" class="ui-g-12 ui-md-4">Length of stay*</label>
+            <p-spinner size="24" [min]="1" id="lengthOfStay" formControlName="lengthOfStay" class="ui-g-12 ui-md-5"></p-spinner>
+            <div class="ui-g-12 ui-md-5">
+               <at-fielderrors [form]="hotelOfferForm" field="lengthOfStay" nicename="Length of stay"></at-fielderrors>
+            </div>
+         </div>
+      </div>
+
+
+      <div class="ui-g">
+         <div class="ui-g-5">
+            <label for="minTripStartDate" class="ui-g-12 ui-md-4">Trip start date (min)*</label>
+            <p-calendar size="40" [showIcon]="true" id="minTripStartDate" formControlName="minTripStartDate" dateFormat="dd/mm/yy"
+                        class="ui-g-12 ui-md-5"></p-calendar>
+            <div class="ui-g-12 ui-md-5">
+               <at-fielderrors [form]="hotelOfferForm" field="minTripStartDate" nicename="Trip start date (min)"></at-fielderrors>
+            </div>
+         </div>
+         <div class="ui-g-5">
+            <label for="maxTripStartDate" class="ui-g-12 ui-md-4">Trip start date (max)*</label>
+            <p-calendar size="40" [showIcon]="true" id="maxTripStartDate" formControlName="maxTripStartDate" dateFormat="dd/mm/yy"
+                        class="ui-g-12 ui-md-5"></p-calendar>
+            <div class="ui-g-12 ui-md-5">
+               <at-fielderrors [form]="hotelOfferForm" field="maxTripStartDate" nicename="Trip start date (max)"></at-fielderrors>
+            </div>
+         </div>
+      </div>
+
+      <div class="ui-g">
+         <div class="ui-g-5">
+            <label for="minStarRating" class="ui-g-12 ui-md-4">Star rating (min)</label>
+            <p-spinner size="24" [min]="0" [max]="5" id="minStarRating" formControlName="minStarRating" class="ui-g-12 ui-md-5"></p-spinner>
+            <div class="ui-g-12 ui-md-5">
+               <at-fielderrors [form]="hotelOfferForm" field="minStarRating" nicename="Star rating (min)"></at-fielderrors>
+            </div>
+         </div>
+         <div class="ui-g-5">
+            <label for="maxStarRating" class="ui-g-12 ui-md-4">Star rating (max)</label>
+            <p-spinner size="24" [min]="0" [max]="5" id="maxStarRating" formControlName="maxStarRating" class="ui-g-12 ui-md-5"></p-spinner>
+            <div class="ui-g-12 ui-md-5">
+               <at-fielderrors [form]="hotelOfferForm" field="maxStarRating" nicename="Star rating (max)"></at-fielderrors>
+            </div>
+         </div>
+      </div>
+
+      <div class="ui-g">
+         <div class="ui-g-5">
+            <label for="minTotalRate" class="ui-g-12 ui-md-4">Total rate (min)</label>
+            <p-spinner size="24" [min]="0" [max]="5" id="minTotalRate" formControlName="minTotalRate" class="ui-g-12 ui-md-5"></p-spinner>
+            <div class="ui-g-12 ui-md-5">
+               <at-fielderrors [form]="hotelOfferForm" field="minTotalRate" nicename="Total rate (min)"></at-fielderrors>
+            </div>
+         </div>
+         <div class="ui-g-5">
+            <label for="maxTotalRate" class="ui-g-12 ui-md-4">Total rate (max)</label>
+            <p-spinner size="24" [min]="0" [max]="5" id="maxTotalRate" formControlName="maxTotalRate" class="ui-g-12 ui-md-5"></p-spinner>
+            <div class="ui-g-12 ui-md-5">
+               <at-fielderrors [form]="hotelOfferForm" field="maxTotalRate" nicename="Total rate (max)"></at-fielderrors>
+            </div>
+         </div>
+      </div>
+
+      <div class="ui-g">
+         <div class="ui-g-5">
+            <label for="minGuestRating" class="ui-g-12 ui-md-4">Guest rating (min)</label>
+            <p-spinner size="24" [min]="0" [max]="5" id="minGuestRating" formControlName="minGuestRating" class="ui-g-12 ui-md-5"></p-spinner>
+            <div class="ui-g-12 ui-md-5">
+               <at-fielderrors [form]="hotelOfferForm" field="minGuestRating" nicename="Guest rating (min)"></at-fielderrors>
+            </div>
+         </div>
+         <div class="ui-g-5">
+            <label for="maxGuestRating" class="ui-g-12 ui-md-4">Guest rating (max)</label>
+            <p-spinner size="24" [min]="0" [max]="5" id="maxGuestRating" formControlName="maxGuestRating" class="ui-g-12 ui-md-5"></p-spinner>
+            <div class="ui-g-12 ui-md-5">
+               <at-fielderrors [form]="hotelOfferForm" field="maxGuestRating" nicename="Guest rating (max)"></at-fielderrors>
+            </div>
+         </div>
+      </div>      
+      
+      <button pButton type="submit" [disabled]="hasFormErrors()" label="Search" icon="fa-search"></button>
+
+   </p-panel>
+</form>
+
