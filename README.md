@@ -1,6 +1,8 @@
-# Hotel Rush
+#Hotel Rush 
 
 [![Build Status](https://travis-ci.org/haydermabood/hotel-rush.svg?branch=master)](https://travis-ci.org/haydermabood/hotel-rush)
+
+**Live Demo:** <https://hotel-rush.herokuapp.com/>
 
 ### Getting started with your local sandbox server
 
