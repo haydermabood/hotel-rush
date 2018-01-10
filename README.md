@@ -1,27 +1,45 @@
-# HotelRush
+# Hotel Rush
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.3.
+[![Build Status](https://travis-ci.org/haydermabood/hotel-rush.svg?branch=master)](https://travis-ci.org/haydermabood/hotel-rush)
 
-## Development server
+### Getting started with your local sandbox server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+**Dependenices:**
 
-## Code scaffolding
+**One time dependencies (you only need to do these the first time you set up this app). If you have set up this app before, skip to step 5.**
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1) Download the *latest* version node.js if you have not already <http://nodejs.org/>. You can confirm that node is successfully installed on your machine by opening up Terminal and typing 'node'. If you don't get an error, it's installed! You can exit the node process with Ctrl+c.
 
-## Build
+2) Download this project repo and navigate into the code directory with Terminal. To download it, click "Download Zip" at [the repo](https://github.com/haydermabood/hotel-rush)... (do not clone it).
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+3) cd path/to/this/code/directory
 
-## Running unit tests
+4) Run **npm install** to get all required libraries.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+	npm install
 
-## Running end-to-end tests
+    ```Note: this command also build the project.``` 
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+5) Run **npm run dev** to start the server.
 
-## Further help
+	npm run dev
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+6) Run **npm run test-server** to run the server tests.
+
+	npm run test-server
+	
+7) Open your favorite browser and navigate to:
+
+	http://localhost:3000/
+
+8) The server hotel offers API is available at the following path:
+
+        http://localhost:3000/api/offers
+	
+	You can append *query sting* parameters as required, for example:
+	
+	    http://localhost:3000/api/offers?destinationName=Miami&lengthOfStay=1&maxTripStartDate=2018-01-18&minTripStartDate=2018-01-11
+	
+9) If at any point you want to re-build the project you can execute:
+
+	npm run build
