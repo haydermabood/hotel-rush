@@ -53,3 +53,5 @@ app.listen(process.env.PORT || 8080, () =>
 {
    console.log(`Application started listening on port ${process.env.PORT || 8080}`);
 });
+
+module.exports = app; //for testing
