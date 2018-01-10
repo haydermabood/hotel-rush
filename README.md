@@ -1,5 +1,5 @@
 
-##Hotel Rush
+# Hotel Rush
 
 [![Build Status](https://travis-ci.org/haydermabood/hotel-rush.svg?branch=master)](https://travis-ci.org/haydermabood/hotel-rush)
 
