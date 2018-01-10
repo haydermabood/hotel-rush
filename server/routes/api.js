@@ -1,6 +1,8 @@
 const express = require('express');
 const request = require('request-promise');
+const queryString = require('query-string');
 const {HOTEL_OFFERS_URL} = require('../common/constants');
+
 
 const router = express.Router();
 
@@ -13,17 +15,16 @@ router.get('/', (req, res) =>
 // Get offers
 router.get('/offers', (req, res) =>
 {
-   request(HOTEL_OFFERS_URL)
+   const query = queryString.stringify(req.query);
+   const targetURL = query ? (HOTEL_OFFERS_URL + '&' + query) : HOTEL_OFFERS_URL;
+
+   request(targetURL)
       .then((body) =>
       {
-         // console.log(body);
-
          res.status(200).json(JSON.parse(body));
       })
       .catch((error) =>
       {
-         // console.log(error);
-
          res.status(500).send(error)
       });
 });

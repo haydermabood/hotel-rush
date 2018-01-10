@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
+import * as _ from 'lodash';
+import * as queryString from 'query-string';
+
 import * as moment from "moment";
 
 import {HOTEL_OFFERS_URL} from "../../common/constants";
@@ -36,9 +39,9 @@ export class HotelOffersSearchComponent implements OnInit
       this.hotelOfferForm = this.fb.group(
          {
             destinationName: ['', [Validators.required, Validators.minLength(3)]],
-            minTripStartDate: ['', Validators.required],
-            maxTripStartDate: ['', Validators.required],
-            lengthOfStay: [1, Validators.required],
+            minTripStartDate: [''],
+            maxTripStartDate: [''],
+            lengthOfStay: [1],
             minStarRating: [],
             maxStarRating: [],
             minTotalRate: [],
@@ -62,21 +65,11 @@ export class HotelOffersSearchComponent implements OnInit
 
    getURL()
    {
-      let url = HOTEL_OFFERS_URL;
+      const query: any = _.pickBy(this.hotelOfferForm.value, _.identity);
 
-      this.hotelOfferForm.value.destinationName  && (url += `&destinationName=${this.hotelOfferForm.value.destinationName}`);
-      this.hotelOfferForm.value.minTripStartDate && (url += `&minTripStartDate=${moment(this.hotelOfferForm.value.minTripStartDate).format('YYYY-MM-DD')}`);
-      this.hotelOfferForm.value.maxTripStartDate && (url += `&maxTripStartDate=${moment(this.hotelOfferForm.value.maxTripStartDate).format('YYYY-MM-DD')}`);
-      this.hotelOfferForm.value.lengthOfStay     && (url += `&lengthOfStay=${this.hotelOfferForm.value.lengthOfStay}`);
-      this.hotelOfferForm.value.minStarRating    && (url += `&minStarRating=${this.hotelOfferForm.value.minStarRating}`);
-      this.hotelOfferForm.value.maxStarRating    && (url += `&maxStarRating=${this.hotelOfferForm.value.maxStarRating}`);
-      this.hotelOfferForm.value.minTotalRate     && (url += `&minTotalRate=${this.hotelOfferForm.value.minTotalRate}`);
-      this.hotelOfferForm.value.maxTotalRate     && (url += `&maxTotalRate=${this.hotelOfferForm.value.maxTotalRate}`);
-      this.hotelOfferForm.value.minGuestRating   && (url += `&minGuestRating=${this.hotelOfferForm.value.minGuestRating}`);
-      this.hotelOfferForm.value.maxGuestRating   && (url += `&destinationName=${this.hotelOfferForm.value.maxGuestRating}`);
+      query.minTripStartDate && (query.minTripStartDate = moment(query.minTripStartDate).format('YYYY-MM-DD'));
+      query.maxTripStartDate && (query.maxTripStartDate = moment(query.maxTripStartDate).format('YYYY-MM-DD'));
 
-      console.log('URL: ', url);
-
-      return url;
+      return HOTEL_OFFERS_URL + queryString.stringify(query);
    }
 }

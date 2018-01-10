@@ -26,8 +26,6 @@ export class HotelOffersComponentResults implements OnInit, OnDestroy
    {
       this.hotelOfferListSubscription = this.hotelOfferService.hotelOfferList.subscribe((offers) =>
       {
-         console.log('>>>>', offers);
-
          this.hotelOfferList = offers;
       });
    }

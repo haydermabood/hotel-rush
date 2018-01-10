@@ -27,11 +27,13 @@ export class HotelService
          .then((res: any) => <HotelOffer[]>res && res.offers && res.offers.Hotel)
          .then(data =>
          {
-            console.log(data);
-
             this.hotelOfferList.next(data);
 
             return data;
+         })
+         .catch((error) =>
+         {
+            console.log(error);
          });
    }
 }
